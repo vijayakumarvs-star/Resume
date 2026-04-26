@@ -18,6 +18,16 @@
             --transition: all 0.3s ease;
         }
 
+        body.light-mode {
+            --bg-color: #f1f5f9;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --accent-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+            --accent-color: #2563eb;
+            --border-color: #cbd5e1;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -110,6 +120,28 @@
             border-color: var(--accent-color);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             color: #fff;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-gradient);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            color: #fff;
+            text-shadow: none;
         }
 
         .section {
@@ -330,9 +362,59 @@
             background: #0ea5e9;
             opacity: 0.1;
         }
+
+        /* Light/Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Cursor Glow Effect */
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.12) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 <body>
+    <div class="cursor-glow"></div>
+    <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
@@ -349,6 +431,10 @@
                 <a href="https://www.linkedin.com/in/vijayakumar-v-s/" target="_blank" class="contact-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/vijayakumarvs-star" target="_blank" class="contact-pill"><i class="fab fa-github"></i> GitHub</a>
             </div>
+            
+            <a href="resume.pdf" download="Vijayakumar_VS_Resume.pdf" target="_blank" class="download-btn">
+                <i class="fas fa-download"></i> Download PDF Resume
+            </a>
         </header>
 
         <section class="section">
@@ -531,6 +617,34 @@
                 blobs[0].style.transform = `translate(${x * 50}px, ${y * 50}px)`;
                 blobs[1].style.transform = `translate(-${x * 50}px, -${y * 50}px)`;
             }
+        });
+
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = themeBtn.querySelector('i');
+        
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if(document.body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Cursor Glow Logic
+        const cursorGlow = document.querySelector('.cursor-glow');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.opacity = '1';
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.style.opacity = '0';
         });
     </script>
 </body>
