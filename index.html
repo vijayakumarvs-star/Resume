@@ -407,6 +407,88 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+        /* Core Competencies */
+        .competency-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 12px;
+        }
+        .competency-item {
+            display: flex;
+            gap: 12px;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: var(--transition);
+            align-items: flex-start;
+        }
+        .competency-item:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(96, 165, 250, 0.35);
+            transform: translateX(4px);
+        }
+        .competency-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 0.88rem;
+            white-space: nowrap;
+            min-width: 155px;
+        }
+        .competency-value {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        /* Project Sub-sections */
+        .project-subsection {
+            margin-top: 20px;
+        }
+        .project-subsection > h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .project-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+        .project-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(96, 165, 250, 0.2);
+        }
+        .project-item-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.93rem;
+            margin-bottom: 10px;
+        }
+        .project-item ul {
+            margin-top: 0;
+        }
+        .achievements-box {
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 18px;
+            margin-top: 20px;
+        }
+        .achievements-box h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -439,85 +521,142 @@
 
         <section class="section">
             <h2><i class="fas fa-user-astronaut"></i> Professional Summary</h2>
-            <p>Results-driven Automation Engineer with solid hands-on experience across the PLC lifecycle, SCADA/HMI development, and industrial control systems. Proficient in programming major PLCs (Beckhoff TwinCAT, Siemens, Omron) using Structured Text and Ladder Logic. Proven ability to support end-to-end system commissioning, hardware testing, and control logic design for the semiconductor, OQC For AGV, and textile sectors. Eager to expand expertise into industrial robotics (ABB RobotStudio, KUKA) and advance toward complex, large-scale automation projects in high-tech manufacturing.</p>
+            <p>Automation &amp; Controls Engineer with hands-on experience in PLC programming, industrial system integration, and full-cycle machine commissioning across semiconductor, AGV testing, and textile automation domains. Proficient in Structured Text and Ladder Logic using Beckhoff TwinCAT, Siemens TIA Portal, and Omron platforms. Strong background in control logic design, field debugging, and motion system validation. Seeking to contribute to advanced automation and robotics projects in global manufacturing environments.</p>
         </section>
 
         <section class="section">
-            <h2><i class="fas fa-microchip"></i> Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Advanced PLC Programming</h3>
-                    <ul>
-                        <li>Beckhoff (TwinCAT 3), Siemens (TIA Portal), Omron, Allen Bradley</li>
-                        <li>Structured Text (ST), Ladder Logic</li>
-                        <li>State-Machine design, ISA-88 modular architecture</li>
-                    </ul>
+            <h2><i class="fas fa-microchip"></i> Core Competencies</h2>
+            <div class="competency-list">
+                <div class="competency-item">
+                    <span class="competency-label">PLC Programming</span>
+                    <span class="competency-value">Beckhoff (TwinCAT 3), Siemens (TIA Portal), Omron, Allen-Bradley</span>
                 </div>
-                <div class="skill-category">
-                    <h3>SCADA / HMI Development</h3>
-                    <ul>
-                        <li>TwinCAT HMI, Wonderware, WinCC, FactoryTalk View</li>
-                        <li>Alarm management, structured variable mapping</li>
-                    </ul>
+                <div class="competency-item">
+                    <span class="competency-label">Languages</span>
+                    <span class="competency-value">Structured Text (ST), Ladder Logic (LD)</span>
                 </div>
-                <div class="skill-category">
-                    <h3>Hardware & Integration</h3>
-                    <ul>
-                        <li>Beckhoff EL series I/O modules</li>
-                        <li>Drive configuration (Elmo Studio)</li>
-                        <li>Data Acquisition & Industrial IoT</li>
-                    </ul>
+                <div class="competency-item">
+                    <span class="competency-label">SCADA / HMI</span>
+                    <span class="competency-value">TwinCAT HMI, Wonderware, WinCC, FactoryTalk View</span>
                 </div>
-                <div class="skill-category">
-                    <h3>Testing & Design</h3>
-                    <ul>
-                        <li>AutoCAD Electrical, Control Panel Design</li>
-                        <li>BOM & wiring harness documentation</li>
-                        <li>Hardware-in-the-loop (HIL) testing</li>
-                    </ul>
+                <div class="competency-item">
+                    <span class="competency-label">Industrial Systems</span>
+                    <span class="competency-value">Machine Automation, AGV Testing Systems, Packaging Systems</span>
+                </div>
+                <div class="competency-item">
+                    <span class="competency-label">Motion Control</span>
+                    <span class="competency-value">Drive Configuration (Elmo), I/O Validation</span>
+                </div>
+                <div class="competency-item">
+                    <span class="competency-label">System Integration</span>
+                    <span class="competency-value">Field Commissioning, Signal Debugging, Interlocks</span>
+                </div>
+                <div class="competency-item">
+                    <span class="competency-label">Electrical Design</span>
+                    <span class="competency-value">AutoCAD Electrical, Control Panels, BOM, Wiring Documentation</span>
+                </div>
+                <div class="competency-item">
+                    <span class="competency-label">Industrial Concepts</span>
+                    <span class="competency-value">ISA-88, Modular Programming, State Machine Design</span>
                 </div>
             </div>
         </section>
 
         <section class="section">
             <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-            
+
             <div class="timeline-item">
                 <div class="job-header">
                     <div>
                         <div class="company">ASM Technologies Ltd</div>
-                        <div class="job-title">Junior Engineer – E&E</div>
+                        <div class="job-title">Engineer – Electrical &amp; Electronics</div>
                     </div>
                     <div class="date-location">
                         <span><i class="fas fa-calendar-alt"></i> Dec 2025 – Present</span>
                         <span><i class="fas fa-map-pin"></i> Bangalore, India</span>
                     </div>
                 </div>
-                <ul>
-                    <li><strong>N2 Stoker Machine Automation (Client: Reliance Pvt Ltd):</strong> Led Bill of Materials (BOM) creation and advanced wire length calculations for a large-scale N2 stoker machine intended for semiconductor and solar panel production facilities. Executed comprehensive testing and on-site commissioning via Omron controllers.</li>
-                    <li><strong>Reusable Programming Templates (Client: AGI Milltech):</strong> Engineered highly reusable Function Block (FB) templates for customized machine modules, significantly reducing overall PLC programming and deployment time.</li>
-                    <li><strong>OQC Test Systems - AC/DC & Drivetrain (Client: Dexterity, USA):</strong> Contributed to the development and commissioning of two OQC test platforms for cutting-edge AGV testing. Supported complex PLC logic validation, interlock debugging, and intensive field-level signal tracing.</li>
-                </ul>
+                <div class="project-subsection">
+                    <h4>Key Contributions</h4>
+                    <ul>
+                        <li>Developed and commissioned automation systems for semiconductor and AGV testing applications</li>
+                        <li>Performed PLC logic validation, interlock debugging, and real-time signal tracing</li>
+                        <li>Configured and validated motion systems using Elmo drives</li>
+                        <li>Supported field commissioning and system-level troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="project-subsection">
+                    <h4>Projects</h4>
+                    <div class="project-item">
+                        <div class="project-item-title"><i class="fas fa-cog" style="color:var(--accent-color);margin-right:8px"></i>N2 Stoker Machine Automation — Reliance Industries</div>
+                        <ul>
+                            <li>Created detailed Bill of Materials (BOM) and optimized wire length calculations</li>
+                            <li>Executed system testing and commissioning using Omron PLCs</li>
+                            <li>Ensured compliance with semiconductor manufacturing standards</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-item-title"><i class="fas fa-cog" style="color:var(--accent-color);margin-right:8px"></i>OQC Test Systems – AC/DC &amp; Drivetrain — Dexterity, USA</div>
+                        <ul>
+                            <li>Contributed to development and commissioning of AGV test platforms</li>
+                            <li>Performed I/O validation and motion-level troubleshooting</li>
+                            <li>Supported debugging of complex interlocks and control logic</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-item-title"><i class="fas fa-cog" style="color:var(--accent-color);margin-right:8px"></i>Reusable PLC Framework Development — AGI Milltech</div>
+                        <ul>
+                            <li>Designed reusable Function Block (FB) templates for modular machine automation</li>
+                            <li>Reduced PLC development time and improved scalability across projects</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="timeline-item">
                 <div class="job-header">
                     <div>
                         <div class="company">Indo Texnology Pvt Ltd</div>
-                        <div class="job-title">Automation Engineer</div>
+                        <div class="job-title">PLC Programmer</div>
                     </div>
                     <div class="date-location">
                         <span><i class="fas fa-calendar-alt"></i> Mar 2025 – Nov 2025</span>
                         <span><i class="fas fa-map-pin"></i> Coimbatore, India</span>
                     </div>
                 </div>
-                <ul>
-                    <li>Managed the complete PLC lifecycle, including programming with Beckhoff TwinCAT, physical installation, and hardware configuration for large-scale textile automation platforms.</li>
-                    <li>Commanded the full automation sequence and system commissioning for a major packaging system (CTS - Cone Transporting System, Cone Palletizer, and Auto Feeder) at Suryalata Spinning Mills Ltd.</li>
-                    <li><strong>Reduced machine downtime by 15%</strong> by auditing and optimizing PLC logic for automated material handling systems.</li>
-                    <li><strong>Accelerated project delivery by 30%</strong> by transitioning the Auto Feeder R&D project from prototype to production phase.</li>
-                    <li>Trained 15+ client technicians, empowering them to independently operate and troubleshoot the PLC/SCADA systems.</li>
-                </ul>
+                <div class="project-subsection">
+                    <h4>Key Contributions</h4>
+                    <ul>
+                        <li>Managed complete PLC lifecycle including programming, installation, and commissioning</li>
+                        <li>Developed automation solutions using Beckhoff TwinCAT for textile systems</li>
+                        <li>Led system integration and startup for large-scale industrial machines</li>
+                    </ul>
+                </div>
+                <div class="project-subsection">
+                    <h4>Projects</h4>
+                    <div class="project-item">
+                        <div class="project-item-title"><i class="fas fa-cog" style="color:var(--accent-color);margin-right:8px"></i>Packaging Automation System — Suryalata Spinning Mills Ltd</div>
+                        <ul>
+                            <li>Commissioned Cone Transport System (CTS), palletizer, and auto feeder</li>
+                            <li>Designed and implemented full automation sequences</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-item-title"><i class="fas fa-cog" style="color:var(--accent-color);margin-right:8px"></i>Packaging Automation System — Indo Count Industries Ltd, Maharashtra</div>
+                        <ul>
+                            <li>Commissioned Cone Transport System (CTS) and automated Palletizer machinery</li>
+                            <li>Successfully executed comprehensive Factory Acceptance Testing (FAT) and Site Acceptance Testing (SAT)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="achievements-box">
+                    <h4><i class="fas fa-trophy"></i>&nbsp; Achievements</h4>
+                    <ul>
+                        <li><strong>Reduced machine downtime by 15%</strong> through PLC logic optimization</li>
+                        <li><strong>Improved project delivery time by 30%</strong> via efficient BOM and documentation practices</li>
+                        <li>Trained 15+ technicians on system operation and troubleshooting</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
